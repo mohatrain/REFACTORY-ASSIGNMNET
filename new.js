@@ -1,8 +1,17 @@
-document.getElementById('demo').innerHTML = "See how far i have gone with coding";
-document.getElementById('demo').name ="new";
+const name = document.getElementById('demo');
+console.log(name)
+const container = document.querySelectorAll('div')
+console.log(typeof container);
+let title = document.getElementById('main-heading')
+document.getElementById('main-heading').innerHTML = "DOCUMENT OBJECT MODEL";
+title.style.color = "green ";
+title.style.fontSize = '3rem';
+title.style.textAlign = 'center';
+var contain = document.querySelectorAll('#list-items');
+for(i = 0; i < contain.length; i++){
+    contain[i].innerHTML = "This actually works";
+    contain[i].style.border = '5px solid red';
+    contain[i].style.padding = '15px';
 
-document.getElementById('heading').innerText= 'DOCUMENT OBJECT MODEL';
-document.getElementsByTagName('h1').innerHTML = "This is a new heading to my documnet";
-let select = document.querySelectorAll('p.intro');
-select[0].innerHTML = "I am currently in the first div";
-select[1].innerHTML = "Date: " + Date();
+    contain[i].style.marginBottom = '10px';
+}
