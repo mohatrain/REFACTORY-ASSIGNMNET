@@ -6,55 +6,75 @@ function validateForm() {
     alert("Dont leave the email field empty😊😊");
     useremail.focus();
     return false;
+  } else {
+    useremail.style.border = "3px solid green";
   }
-  var validRegex =
-    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-
-  // if (email.value.match(validRegex)) {
-  //   alert("Valid email address!");
-  //   username.style.border = "23px solid green";
-  //   return true;
-  // } else {
-  //   alert("Invalid email address!");
-
-  //   username.focus();
-  // }
-  // var regularExpression = /^[a-zA-Z0-9!@#$%^&*]$/;
-  // if (password.value == "") {
-  //   password.style.border = "2px solid red";
-  //   alert("Please enter your password");
-  //   password.focus();
-  //   return false;
-  // } else if (password.value.length < 6) {
-  //   alert("Your password is short 😩😩");
-  //   password.focus();
-  //   return false;
-  // } else if (password.length >= 6 && password.length < 16) {
-  //   alert("Your password is in the acceptable range");
-  // } else if (!regularExpression.test(newPassword)) {
-  //   alert(
-  //     "password should contain atleast one number and one special character"
-  //   );
-  //   return false;
-  // }
-  const cb = document.querySelector("exampleCheck1:checked");
-  if (cb != true) {
-    alert("Please accept our terms and conditions");
-     return false;
-  }else (cb == true){
-    return true
+  //PASSWORD VALIDATION
+  var p = password.value;
+  if (
+    !(
+      p.search(/[0-9]/) < 0 &&
+      p.search(/[0-9]/) < 0 &&
+      p.search(/[A-Z]/g) < 0 &&
+      p.search(/[a-z]/g) < 0
+    )
+  ) {
+    password.style.border = "3px solid green";
   }
- 
-}
+else if (p.length < 8) {
+    alert("Your password must be at least 8 characters");
+    password.focus();
+    password.style.border = "3px solid red";
+    return false;
+  } else if (p.search(/[a-z]/g) < 0) {
+    alert("Your password must contain at least one lowercase letter.");
+    password.focus();
+    password.style.border = "3px solid red";
+    return false;
+  } else if (p.search(/[A-Z]/g) < 0) {
+    alert("Your password must contain at least one uppercase letter.");
+    password.focus();
+    password.style.border = "3px solid red";
+    return false;
+  } else if (p.search(/[0-9]/) < 0) {
+    alert("Your password must contain at least one digit.");
+    password.focus();
+    password.style.border = "3px solid red";
+    return false;
+  }
 
-// if (
-//   password.length < minNumberofChars || // true || false
-//   password.length > maxNumberofChars
-// )
-var e = document.getElementById("select");
-var strUser = e.options[e.selectedIndex].value;
+  
+  //CHECKBOX VALIDATION
+  var testCheckbox = document.getElementById("exampleCheck1");
+  if (!testCheckbox.checked) {
+    alert("OOOPPPPPPS you've not accepted our terms and conditions😩😩😩!!");
+    testCheckbox.focus();
+    return false;
+  }
 
-var strUser1 = e.options[e.selectedIndex].text;
-if (strUser == 0) {
-  alert("Please select a user");
+  //SELECT VALIDATION
+  var e = document.getElementById("select");
+  var optionSelIndex = e.options[e.selectedIndex].value;
+  var optionSelectedText = e.options[e.selectedIndex].text;
+  if (optionSelIndex == 0) {
+    alert("Please select your respective age group");
+    return false;
+  } else {
+    alert("Success !! You have selected an age group: " + optionSelectedText);
+  }
+
+  // CHECKBOX VALIDATION
+  var check = document.getElementById("flexRadioDefault1");
+  if (
+    document.getElementById("flexRadioDefault1").checked == true ||
+    document.getElementById("flexRadioDefault2").checked == true
+  ) {
+    alert("Thanks for making a choice👌👌");
+  } else {
+    alert("Please make a choice");
+    check.focus();
+    return false;
+  }
+
+
 }
