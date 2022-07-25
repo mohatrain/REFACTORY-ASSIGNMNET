@@ -57,6 +57,7 @@ function validateForm() {
   var optionSelectedText = e.options[e.selectedIndex].text;
   if (optionSelIndex == 0) {
     alert("Please select your respective age group");
+    e.style.border = "3px solid red";
     return false;
   } else {
     alert("Success !! You have selected an age group: " + optionSelectedText);
