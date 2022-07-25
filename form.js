@@ -13,15 +13,14 @@ function validateForm() {
   var p = password.value;
   if (
     !(
-      p.search(/[0-9]/) < 0 &&
-      p.search(/[0-9]/) < 0 &&
+      p.search(/[0-9]/g) < 0 &&
       p.search(/[A-Z]/g) < 0 &&
       p.search(/[a-z]/g) < 0
     )
   ) {
     password.style.border = "3px solid green";
-  }
-else if (p.length < 8) {
+  }else 
+  if (p.length < 8) {
     alert("Your password must be at least 8 characters");
     password.focus();
     password.style.border = "3px solid red";
@@ -51,7 +50,7 @@ else if (p.length < 8) {
     testCheckbox.focus();
     return false;
   }
-
+// myCars["Benz"]
   //SELECT VALIDATION
   var e = document.getElementById("select");
   var optionSelIndex = e.options[e.selectedIndex].value;
@@ -61,7 +60,11 @@ else if (p.length < 8) {
     return false;
   } else {
     alert("Success !! You have selected an age group: " + optionSelectedText);
+     e.style.border = "3px solid green";
   }
+
+  // myCars = ["Benz","Prado","Hyundai"];
+  // myCars["Benz"]
 
   // CHECKBOX VALIDATION
   var check = document.getElementById("flexRadioDefault1");
@@ -76,5 +79,5 @@ else if (p.length < 8) {
     return false;
   }
 
-
+ alert('Until Next Time.............')
 }
