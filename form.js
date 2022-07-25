@@ -11,15 +11,6 @@ function validateForm() {
   }
   //PASSWORD VALIDATION
   var p = password.value;
-  if (
-    !(
-      p.search(/[0-9]/g) < 0 &&
-      p.search(/[A-Z]/g) < 0 &&
-      p.search(/[a-z]/g) < 0
-    )
-  ) {
-    password.style.border = "3px solid green";
-  }else 
   if (p.length < 8) {
     alert("Your password must be at least 8 characters");
     password.focus();
@@ -40,9 +31,10 @@ function validateForm() {
     password.focus();
     password.style.border = "3px solid red";
     return false;
+  } else {
+    password.style.border = "3px solid green";
   }
 
-  
   //CHECKBOX VALIDATION
   var testCheckbox = document.getElementById("exampleCheck1");
   if (!testCheckbox.checked) {
@@ -50,7 +42,7 @@ function validateForm() {
     testCheckbox.focus();
     return false;
   }
-// myCars["Benz"]
+  // myCars["Benz"]
   //SELECT VALIDATION
   var e = document.getElementById("select");
   var optionSelIndex = e.options[e.selectedIndex].value;
@@ -61,7 +53,7 @@ function validateForm() {
     return false;
   } else {
     alert("Success !! You have selected an age group: " + optionSelectedText);
-     e.style.border = "3px solid green";
+    e.style.border = "3px solid green";
   }
 
   // myCars = ["Benz","Prado","Hyundai"];
@@ -80,5 +72,5 @@ function validateForm() {
     return false;
   }
 
- alert('Until Next Time.............')
+  alert("Until Next Time.............");
 }
